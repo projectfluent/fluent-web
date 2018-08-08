@@ -2,7 +2,8 @@
 
 import { negotiateLanguages } from "fluent-langneg";
 import { MessageContext } from "fluent";
-import { DOMLocalization } from "../../fluent-dom/src/index";
+import { DOMLocalization } from "../../fluent.js/fluent-dom/src/index";
+import { CachedAsyncIterable } from "cached-iterable";
 
 function documentReady() {
   const rs = document.readyState;
@@ -57,7 +58,7 @@ async function createContext(locale, resourceIds) {
 
 const meta = getMeta(document.head);
 
-function* generateMessages(resourceIds) {
+async function* generateMessages(resourceIds) {
   const locales = negotiateLanguages(
     navigator.languages,
     meta.available,
@@ -66,13 +67,13 @@ function* generateMessages(resourceIds) {
     }
   );
   for (const locale of locales) {
-    yield createContext(locale, resourceIds);
+    yield await createContext(locale, resourceIds);
   }
 }
 
 const resourceIds = getResourceLinks(document.head);
 document.l10n = new DOMLocalization(
-  window, resourceIds, generateMessages
+  resourceIds, generateMessages
 );
 window.addEventListener("languagechange", document.l10n);
 

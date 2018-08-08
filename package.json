@@ -40,6 +40,11 @@
   },
   "dependencies": {
     "fluent": "~0.4.0",
-    "fluent-langneg": "~0.1.0"
+    "fluent-langneg": "~0.1.0",
+    "fluent-dom": "~0.4.0",
+    "cached-iterable": "~0.2.1"
+  },
+  "devDependencies": {
+    "rollup-plugin-node-resolve": "^3.3.0"
   }
 }
