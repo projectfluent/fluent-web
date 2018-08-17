@@ -2,7 +2,7 @@
 
 import { negotiateLanguages } from "fluent-langneg";
 import { MessageContext } from "fluent";
-import { DOMLocalization } from "../../fluent.js/fluent-dom/src/index";
+import { DOMLocalization } from "fluent-dom";
 import { CachedAsyncIterable } from "cached-iterable";
 
 function documentReady() {
