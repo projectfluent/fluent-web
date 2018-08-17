@@ -38,6 +38,9 @@
   "engines": {
     "node": ">=8.9.0"
   },
+  "scripts": {
+      "start" : "make -f makefile build & npx http-server ./examples"
+  },
   "dependencies": {
     "fluent": "~0.4.0",
     "fluent-langneg": "~0.1.0",
