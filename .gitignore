@@ -2,3 +2,4 @@ node_modules
 build
 .DS_Store
 fluent-web.js
+package-lock.json
