@@ -1,7 +1,7 @@
 /* eslint-env browser */
 
 import { negotiateLanguages } from "fluent-langneg";
-import { MessageContext } from "fluent";
+import { FluentBundle } from "fluent";
 import { DOMLocalization } from "fluent-dom";
 import { CachedAsyncIterable } from "cached-iterable";
 
@@ -42,7 +42,7 @@ async function fetchResource(locale, id) {
 }
 
 async function createContext(locale, resourceIds) {
-  const ctx = new MessageContext([locale]);
+  const ctx = new FluentBundle([locale]);
 
   // First fetch all resources
   const resources = await Promise.all(

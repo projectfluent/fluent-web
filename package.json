@@ -39,15 +39,16 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-      "start" : "make -f makefile build & npx http-server ./examples"
+    "start": "make -f makefile build & npx http-server ./examples"
   },
   "dependencies": {
-    "fluent": "~0.4.0",
+    "fluent": "~0.8.1",
     "fluent-langneg": "~0.1.0",
     "fluent-dom": "~0.4.0",
     "cached-iterable": "~0.2.1"
   },
   "devDependencies": {
-    "rollup-plugin-node-resolve": "^3.3.0"
+    "rollup": "~0.66.3",
+    "rollup-plugin-node-resolve": "^3.4.0"
   }
 }

@@ -6,7 +6,7 @@ include ./common.mk
 build: $(PACKAGE).js
 
 $(PACKAGE).js: $(SOURCES)
-	@rollup $(CURDIR)/src/index.js \
+	@./node_modules/.bin/rollup $(CURDIR)/src/index.js \
 		--config $(CURDIR)/rollup_config.js \
 		--banner "/* $(PACKAGE)@$(VERSION) */" \
 		--name $(GLOBAL) \
