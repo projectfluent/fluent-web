@@ -13,6 +13,20 @@ The result `fluent-web.js` file should be included in the HTML file
 and any code executing after it will have access to the FluentWeb API.
 
 
+## Quick start
+
+Clone and run the
+[projectfluent/fluent-web](https://github.com/projectfluent/fluent-web)
+repository to see the examples:
+
+```sh
+git clone https://github.com/projectfluent/fluent-web
+cd fluent-web
+npm install
+npm start
+```
+
+
 ## How to use
 
 The primary access point is the `document.l10n` object of class
@@ -52,6 +66,8 @@ document.l10n.setAttributes(h1, 'welcome', { user: 'Anna' });
 Find out more about Project Fluent at [projectfluent.org][], including
 documentation of the Fluent file format ([FTL][]), links to other packages and
 implementations, and information about how to get involved.
+
+
 
 
 [projectfluent.org]: http://projectfluent.org
