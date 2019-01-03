@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-## fluent-web 0.1.0
+## fluent-web 0.1.1
 
   - Update to Fluent 0.10.0
   - Update to FluentDOM 0.4.1
