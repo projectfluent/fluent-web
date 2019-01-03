@@ -24,6 +24,7 @@ git clone https://github.com/projectfluent/fluent-web
 cd fluent-web
 npm install
 npm start
+open http://127.0.0.1:8080/examples/simple.html
 ```
 
 

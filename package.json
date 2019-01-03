@@ -1,12 +1,13 @@
 {
   "name": "fluent-web",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Drop-in localization framework for HTML documents",
   "repository": {
     "type": "git",
-    "url": "https://github.com/projectfluent/fluent.js.git"
+    "url": "https://github.com/projectfluent/fluent-web.git"
   },
   "author": "Mozilla <l10n-drivers@mozilla.org>",
+  "homepage": "http://projectfluent.org",
   "license": "Apache-2.0",
   "contributors": [
     {
@@ -39,16 +40,19 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "make -f makefile build & npx http-server ./examples"
+    "start": "make -f makefile build & npx http-server ./"
   },
   "dependencies": {
-    "fluent": "~0.8.1",
-    "fluent-langneg": "~0.1.0",
-    "fluent-dom": "~0.4.0",
-    "cached-iterable": "~0.2.1"
+    "cached-iterable": "^0.3.0",
+    "fluent": "^0.10.0",
+    "fluent-dom": "^0.4.1",
+    "fluent-langneg": "~0.1.0"
   },
   "devDependencies": {
-    "rollup": "~0.66.3",
-    "rollup-plugin-node-resolve": "^3.4.0"
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "rollup": "^1.0.1",
+    "rollup-plugin-node-resolve": "^4.0.0"
   }
 }
