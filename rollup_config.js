@@ -1,4 +1,5 @@
 import resolve from 'rollup-plugin-node-resolve';
+import minify from 'rollup-plugin-babel-minify';
 
 export default {
   output: {
@@ -10,6 +11,10 @@ export default {
   plugins: [
     resolve({
       browser: true,
+    }),
+    minify({
+      // Options for babel-minify.
+      comments: false
     })
   ]
 };
