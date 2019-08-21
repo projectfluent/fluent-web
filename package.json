@@ -1,6 +1,6 @@
 {
   "name": "@fluent/web",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Drop-in localization framework for HTML documents",
   "repository": {
     "type": "git",

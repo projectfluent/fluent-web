@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## fluent-web 0.2.1
+
+  - Reduce the package size from 40kb to 10kb
+
 ## fluent-web 0.2.0
 
   - Update to @fluent/bundle 0.14.0
