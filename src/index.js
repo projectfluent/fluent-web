@@ -1,18 +1,18 @@
 /* eslint-env browser */
 
-import { negotiateLanguages } from 'fluent-langneg';
-import { FluentBundle } from 'fluent';
-import { DOMLocalization } from 'fluent-dom';
+import { negotiateLanguages } from "@fluent/langneg";
+import { FluentBundle, FluentResource } from "@fluent/bundle";
+import { DOMLocalization } from "@fluent/dom";
 
 function documentReady() {
   const rs = document.readyState;
-  if (rs === 'interactive' || rs === 'completed') {
+  if (rs === "interactive" || rs === "completed") {
     return Promise.resolve();
   }
 
   return new Promise(
     resolve => document.addEventListener(
-      'readystatechange', resolve, { once: true },
+      "readystatechange", resolve, { once: true },
     ),
   );
 }
@@ -20,24 +20,24 @@ function documentReady() {
 function getMeta(elem) {
   return {
     available: elem.querySelector('meta[name="availableLanguages"]')
-      .getAttribute('content')
-      .split(',').map(s => s.trim()),
+      .getAttribute("content")
+      .split(",").map(s => s.trim()),
     default: elem.querySelector('meta[name="defaultLanguage"]')
-      .getAttribute('content'),
+      .getAttribute("content"),
   };
 }
 
 function getResourceLinks(elem) {
   return Array.prototype.map.call(
     elem.querySelectorAll('link[rel="localization"]'),
-    el => el.getAttribute('href'),
+    el => el.getAttribute("href"),
   );
 }
 
 async function fetchResource(locale, id) {
-  const url = id.replace('{locale}', locale);
+  const url = id.replace("{locale}", locale);
   const response = await fetch(url);
-  return response.text();
+  return new FluentResource(await response.text());
 }
 
 async function createContext(locale, resourceIds) {
@@ -50,7 +50,7 @@ async function createContext(locale, resourceIds) {
 
   // Then apply them preserving order
   for (const resource of resources) {
-    ctx.addMessages(resource);
+    ctx.addResource(resource);
   }
   return ctx;
 }
@@ -74,7 +74,7 @@ const resourceIds = getResourceLinks(document.head);
 document.l10n = new DOMLocalization(
   resourceIds, generateMessages,
 );
-window.addEventListener('languagechange', document.l10n);
+window.addEventListener("languagechange", document.l10n);
 
 document.l10n.ready = documentReady().then(() => {
   document.l10n.connectRoot(document.documentElement);

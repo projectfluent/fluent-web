@@ -1,7 +1,7 @@
 # This makefile is intended to be included by each package's makefile.  The
 # paths are relative to the package directory.
 
-ROOT := $(CURDIR)/..
+ROOT := $(CURDIR)/.
 SOURCES := $(wildcard src/*)
 VERSION := $(shell node -pe "require('./package.json').version")
 
@@ -9,32 +9,15 @@ export SHELL := /bin/bash
 export PATH  := $(ROOT)/node_modules/.bin:$(PATH)
 
 # The default target.
-all: lint test build
+all: lint build
 
 # Used for pre-publishing.
-dist: lint test build html
+dist: clean lint build
 
 lint:
 	@eslint --config $(ROOT)/eslint_src.json --max-warnings 0 src/
 	@eslint --config $(ROOT)/eslint_test.json --max-warnings 0 test/
 	@echo -e " $(OK) $@"
-
-test:
-ifneq (,$(wildcard ./test/index.js))
-	@mocha --recursive --ui tdd \
-	    --require $(ROOT)/mocha_setup \
-	    --require ./test/index \
-	    test/**/*_test.js
-else
-	@mocha --recursive --ui tdd \
-	    --require $(ROOT)/mocha_setup \
-	    test/**/*_test.js
-endif
-
-html: $(SOURCES)
-	@jsdoc -c $(ROOT)/.jsdoc.json -R README.md \
-	    -d $(ROOT)/html/$(PACKAGE) $(SOURCES)
-	@echo -e " $(OK) $@ built"
 
 deps:
 	@npm install

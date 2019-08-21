@@ -1,11 +1,11 @@
-# fluent-web
+# @fluent/web
 
-`fluent-web` is a runtime polyfill that binds `Fluent` and `FluentDOM` into
+`@fluent/web` is a runtime polyfill that binds `Fluent` and `FluentDOM` into
 a vanilla Web platform (HTML, DOM, JS).
 
 ## Installation
 
-`fluent-web` provides a glue code that is executed at runtime to construct
+`@fluent/web` provides a glue code that is executed at runtime to construct
 `DOMLocalization`, bind it to `document.l10n`, perform initial document
 translation and set the event listeners and MutationObserver.
 

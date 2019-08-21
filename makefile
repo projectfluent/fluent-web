@@ -1,11 +1,11 @@
-PACKAGE := fluent-web
+PACKAGE := @fluent/web
 GLOBAL  := FluentWeb
 
 include ./common.mk
 
-build: $(PACKAGE).js
+build: fluent-web.js
 
-$(PACKAGE).js: $(SOURCES)
+fluent-web.js: $(SOURCES)
 	@./node_modules/.bin/rollup $(CURDIR)/src/index.js \
 		--config $(CURDIR)/rollup_config.js \
 		--banner "/* $(PACKAGE)@$(VERSION) */" \
@@ -14,5 +14,5 @@ $(PACKAGE).js: $(SOURCES)
 	@echo -e " $(OK) $@ built"
 
 clean:
-	@rm -f $(PACKAGE).js
+	@rm -f fluent-web.js
 	@echo -e " $(OK) clean"
