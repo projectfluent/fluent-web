@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## fluent-web 0.2.0
+
+  - Update to @fluent/bundle 0.14.0
+  - Update to @fluent/dom 0.6.0
+
 ## fluent-web 0.1.1
 
   - Update to Fluent 0.10.0
